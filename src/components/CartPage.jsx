@@ -1,35 +1,42 @@
-import { useContext } from "react";
+import { useContext } from "react"; 
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import styles from "../styles/CartPage.module.css"; // Import the CSS styles
 
 const CartPage = () => {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useContext(CartContext);
 
   const total = cart.reduce((acc, item) => acc + item.discountedPrice * item.quantity, 0);
 
-  if (cart.length === 0) return <h2>Your cart is empty</h2>;
+  if (cart.length === 0) return <h2 className={styles.emptyCart}>Your cart is empty</h2>;
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       <h1>Shopping Cart</h1>
-      {cart.map((item) => (
-        <div key={item.id}>
-          <h2>{item.title}</h2>
-          <p>Price: ${item.discountedPrice.toFixed(2)}</p>
-          <p>Quantity: {item.quantity}</p>
-          <div className="cartControls">
-  <button className="quantityBtn" onClick={() => decreaseQuantity(item.id)}>-</button>
-  <button className="quantityBtn" onClick={() => increaseQuantity(item.id)}>+</button>
-  <button className="removeBtn" onClick={() => removeFromCart(item.id)}>Remove</button>
-</div>
-
-        </div>
-      ))}
+      <div className={styles.cartItems}>
+        {cart.map((item) => (
+          <div key={item.id} className={styles.cartItem}>
+            <img src={item.image.url} alt={item.image.alt || item.title} className={styles.cartImage} />
+            <div className={styles.itemDetails}>
+              <h2>{item.title}</h2>
+              <p>Price: ${item.discountedPrice.toFixed(2)}</p>
+              <p>Quantity: {item.quantity}</p>
+              <div className={styles.cartControls}>
+                <button className={styles.quantityBtn} onClick={() => decreaseQuantity(item.id)}>-</button>
+                <button className={styles.quantityBtn} onClick={() => increaseQuantity(item.id)}>+</button>
+                <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
       <h3>Total: ${total.toFixed(2)}</h3>
-      <button onClick={clearCart}>Clear Cart</button>
-      <Link to="/checkout">
-        <button>Proceed to Checkout</button>
-      </Link>
+      <div className={styles.checkoutActions}>
+        <button className={styles.clearCartBtn} onClick={clearCart}>Clear Cart</button>
+        <Link to="/checkout">
+          <button className={styles.checkoutBtn}>Proceed to Checkout</button>
+        </Link>
+      </div>
     </div>
   );
 };
