@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../styles/ContactPage.module.css"; // ✅ Import styles
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -9,16 +10,14 @@ const ContactPage = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
-    
-    if (form.fullName.length < 3) newErrors.fullName = "Full name must be at least 3 characters.";
-    if (form.subject.length < 3) newErrors.subject = "Subject must be at least 3 characters.";
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-if (!emailPattern.test(form.email)) newErrors.email = "Enter a valid email (e.g., name@example.com)";
-
-    if (form.body.length < 3) newErrors.body = "Message must be at least 3 characters.";
+    if (form.fullName.trim().length < 3) newErrors.fullName = "Full name must be at least 3 characters.";
+    if (form.subject.trim().length < 3) newErrors.subject = "Subject must be at least 3 characters.";
+    if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Invalid email format.";
+    if (form.body.trim().length < 10) newErrors.body = "Message must be at least 10 characters.";
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -32,37 +31,65 @@ if (!emailPattern.test(form.email)) newErrors.email = "Enter a valid email (e.g.
     e.preventDefault();
     if (validateForm()) {
       console.log("Form submitted:", form);
-      alert("Message sent successfully!");
-      setForm({ fullName: "", subject: "", email: "", body: "" }); // Clear form
+      setSubmitted(true);
+      setForm({ fullName: "", subject: "", email: "", body: "" }); // ✅ Clear form
+      setErrors({});
     }
   };
 
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="text" name="fullName" placeholder="Full Name" value={form.fullName} onChange={handleChange} />
-          {errors.fullName && <p style={{ color: "red" }}>{errors.fullName}</p>}
-        </div>
+    <div className={styles.contactContainer}>
+      <div className={styles.contactBox}>
+        <h1>Contact Us</h1>
+        {submitted && <p className={styles.successMessage}>✅ Message sent successfully!</p>}
 
-        <div>
-          <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
-          {errors.subject && <p style={{ color: "red" }}>{errors.subject}</p>}
-        </div>
+        <form onSubmit={handleSubmit} className={styles.contactForm}>
+          <label htmlFor="fullName">Full Name</label>
+          <input
+            type="text"
+            name="fullName"
+            id="fullName"
+            placeholder="Enter your full name"
+            value={form.fullName}
+            onChange={handleChange}
+          />
+          {errors.fullName && <p className={styles.errorText}>{errors.fullName}</p>}
 
-        <div>
-          <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-        </div>
+          <label htmlFor="subject">Subject</label>
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            placeholder="Enter subject"
+            value={form.subject}
+            onChange={handleChange}
+          />
+          {errors.subject && <p className={styles.errorText}>{errors.subject}</p>}
 
-        <div>
-          <textarea name="body" placeholder="Your message..." value={form.body} onChange={handleChange}></textarea>
-          {errors.body && <p style={{ color: "red" }}>{errors.body}</p>}
-        </div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            value={form.email}
+            onChange={handleChange}
+          />
+          {errors.email && <p className={styles.errorText}>{errors.email}</p>}
 
-        <button type="submit">Send Message</button>
-      </form>
+          <label htmlFor="body">Message</label>
+          <textarea
+            name="body"
+            id="body"
+            placeholder="Type your message here..."
+            value={form.body}
+            onChange={handleChange}
+          ></textarea>
+          {errors.body && <p className={styles.errorText}>{errors.body}</p>}
+
+          <button type="submit" className={styles.submitBtn}>Send Message</button>
+        </form>
+      </div>
     </div>
   );
 };

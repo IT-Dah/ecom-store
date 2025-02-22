@@ -1,32 +1,78 @@
+/* Center everything */
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  text-align: center;
+}
+
+/* Form box */
+.contactBox {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+}
+
+/* Contact Form */
 .contactForm {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-    padding: 2rem;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
-  .contactForm input,
-  .contactForm textarea {
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .contactForm button {
-    background: #008CBA;
-    color: white;
-    padding: 0.8rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .contactForm button:hover {
-    background: #005f73;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Labels */
+.contactForm label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Inputs & Textarea */
+.contactForm input,
+.contactForm textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contactForm textarea {
+  min-height: 100px;
+}
+
+/* Error messages */
+.errorText {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Success message */
+.successMessage {
+  color: green;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Submit button */
+.submitBtn {
+  background: #008CBA;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: #005f73;
+}
