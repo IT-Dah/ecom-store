@@ -1,35 +1,56 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #282c34;
-    padding: 15px;
-    color: white;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 18px;
-  }
-  
-  .navbar a:hover {
-    text-decoration: underline;
-  }
-  
-  .cart-icon {
-    position: relative;
-  }
-  
-  .cart-badge {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    padding: 3px 6px;
-    border-radius: 50%;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  padding: 15px 20px;
+  color: white;
+}
+
+/* ✅ DigiShop Branding */
+.brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* ✅ Styling for the nav links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* ✅ Navigation links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #61dafb; /* React blue */
+  transform: scale(1.1);
+}
+
+/* ✅ Cart Icon */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ✅ Cart Badge */
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
