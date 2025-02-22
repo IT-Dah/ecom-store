@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/ContactPage.module.css"; // ✅ Import styles
+import styles from "../styles/ContactPage.module.css";
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -32,7 +32,7 @@ const ContactPage = () => {
     if (validateForm()) {
       console.log("Form submitted:", form);
       setSubmitted(true);
-      setForm({ fullName: "", subject: "", email: "", body: "" }); // ✅ Clear form
+      setForm({ fullName: "", subject: "", email: "", body: "" });
       setErrors({});
     }
   };

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/CheckoutSuccessPage.module.css"; // Ensure you have this CSS file
-
+import styles from "../styles/CheckoutSuccessPage.module.css";
 const CheckoutSuccessPage = () => {
   return (
     <div className={styles.successContainer}>

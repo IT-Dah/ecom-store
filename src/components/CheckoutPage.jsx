@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../styles/CheckoutPage.module.css"; // ✅ Import styles
+import styles from "../styles/CheckoutPage.module.css";
 
 const CheckoutPage = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -12,7 +12,7 @@ const CheckoutPage = () => {
   if (cart.length === 0) return <h2 className={styles.emptyCart}>Your cart is empty</h2>;
 
   const handleCheckout = () => {
-    clearCart(); // ✅ Clear the cart after successful checkout
+    clearCart();
     navigate("/checkout-success");
   };
 

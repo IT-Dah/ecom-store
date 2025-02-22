@@ -12,7 +12,7 @@
 /* ✅ Ensure consistent image sizing */
 .productContainer img {
   width: 100%;
-  max-width: 350px; /* Increased max width for larger screens */
+  max-width: 350px;
   height: auto;
   object-fit: cover;
   border-radius: 10px;

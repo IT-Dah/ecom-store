@@ -14,8 +14,8 @@ const ProductPage = () => {
       try {
         const response = await fetch(`https://v2.api.noroff.dev/online-shop/${id}`);
         const result = await response.json();
-        console.log("Fetched product:", result); // Debugging
-        setProduct(result.data); // ✅ Extracting only `data`
+        console.log("Fetched product:", result);
+        setProduct(result.data);
       } catch (error) {
         console.error("Error fetching product:", error);
       } finally {
@@ -30,7 +30,7 @@ const ProductPage = () => {
 
   return (
     <div className={styles.productContainer}>
-      {product.image && ( // ✅ Prevents errors if `image` is undefined
+      {product.image && (
         <img src={product.image.url} alt={product.image.alt || product.title} />
       )}
       <div className={styles.productDetails}>

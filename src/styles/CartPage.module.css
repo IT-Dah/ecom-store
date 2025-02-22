@@ -5,7 +5,7 @@
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  text-align: center; /* ✅ Center all content */
+  text-align: center;
 }
 
 /* Make the cart title stand out */
@@ -24,8 +24,8 @@ h1 {
 /* Cart Item Styling */
 .cartItem {
   display: flex;
-  flex-direction: column; /* ✅ Center image and text */
-  align-items: center; /* ✅ Align items to center */
+  flex-direction: column;
+  align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #ddd;
 }
@@ -36,12 +36,12 @@ h1 {
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
-  margin-bottom: 10px; /* ✅ Add spacing */
+  margin-bottom: 10px;
 }
 
 /* Center product details */
 .itemDetails {
-  text-align: center; /* ✅ Center text */
+  text-align: center;
   width: 100%;
 }
 

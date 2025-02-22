@@ -7,7 +7,7 @@ import CartPage from "./components/CartPage";
 import CheckoutPage from "./components/CheckoutPage";
 import CheckoutSuccessPage from "./components/CheckoutSuccessPage";
 import ContactPage from "./components/ContactPage";
-import { CartProvider } from "./context/CartContext"; // ✅ Import CartProvider
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (

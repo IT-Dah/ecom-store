@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import Footer from "./Footer";
 
 import layoutStyles from "../styles/Layout.module.css";
 import headerStyles from "../styles/header.module.css";
@@ -31,6 +32,8 @@ const Layout = () => {
       <main className={layoutStyles.mainContent}>
         <Outlet />
       </main>
+
+      <Footer /> {/* ✅ Add Footer Here */}
     </div>
   );
 };

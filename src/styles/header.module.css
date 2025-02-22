@@ -31,7 +31,7 @@
 }
 
 .navbar a:hover {
-  color: #61dafb; /* React blue */
+  color: #61dafb;
   transform: scale(1.1);
 }
 
