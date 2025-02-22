@@ -1,13 +1,12 @@
 .navbar {
   display: flex;
-  align-items: center; /* ✅ Ensures everything is vertically centered */
-  justify-content: space-between; /* ✅ Keeps spacing balanced */
-  background: #2b2f36; /* Updated background color */
+  align-items: center;
+  justify-content: space-between;
+  background: #2b2f36;
   padding: 1rem 2rem;
   height: 60px;
 }
 
-/* ✅ DigiShop stays on the left */
 .brand {
   font-size: 1.8rem;
   font-weight: bold;
@@ -16,15 +15,13 @@
   padding: 0;
 }
 
-/* ✅ Centers the nav links */
 .navLinks {
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ Ensures all nav items are evenly aligned */
+  justify-content: center;
   gap: 2rem;
 }
 
-/* ✅ Style links */
 .navLinks a {
   color: white;
   text-decoration: none;
@@ -37,7 +34,6 @@
   color: #ff6600;
 }
 
-/* ✅ Cart Icon Styling */
 .cartIcon {
   display: flex;
   align-items: center;
@@ -54,17 +50,16 @@
   transform: scale(1.05);
 }
 
-/* ✅ Cart Icon */
 .cartIcon {
   display: flex;
-  align-items: center; /* ✅ Aligns cart icon & text */
+  align-items: center;
   font-weight: bold;
   text-decoration: none;
   color: white;
 }
 
 .cartBadge {
-  background-color: red;
+  background-color: #1e90ff;
   color: white;
   font-size: 0.8rem;
   font-weight: bold;
