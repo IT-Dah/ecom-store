@@ -14,7 +14,6 @@ const ProductPage = () => {
       try {
         const response = await fetch(`https://v2.api.noroff.dev/online-shop/${id}`);
         const result = await response.json();
-        console.log("Fetched product:", result);
         setProduct(result.data);
       } catch (error) {
         console.error("Error fetching product:", error);
