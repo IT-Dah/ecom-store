@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useContext(CartContext);
 
   const total = cart.reduce((acc, item) => acc + item.discountedPrice * item.quantity, 0);
 
@@ -15,8 +15,10 @@ const CartPage = () => {
       {cart.map((item) => (
         <div key={item.id}>
           <h2>{item.title}</h2>
-          <p>Quantity: {item.quantity}</p>
           <p>Price: ${item.discountedPrice.toFixed(2)}</p>
+          <p>Quantity: {item.quantity}</p>
+          <button onClick={() => decreaseQuantity(item.id)}>-</button> {/* Decrease quantity */}
+          <button onClick={() => increaseQuantity(item.id)}>+</button> {/* Increase quantity */}
           <button onClick={() => removeFromCart(item.id)}>Remove</button>
         </div>
       ))}
