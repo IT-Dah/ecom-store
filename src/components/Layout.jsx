@@ -1,22 +1,30 @@
-import React, { useContext } from "react"; 
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
-const Layout = () => {
-  const { cart } = useContext(CartContext); // ✅ Make sure this is inside CartProvider
+import layoutStyles from "../styles/Layout.module.css"; // Layout styles
+import headerStyles from "../styles/header.module.css"; // Header styles
 
-  // Calculate total quantity of all items in the cart
-  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+const Layout = () => {
+  const { cart } = useContext(CartContext);
+
+  // ✅ Calculate total items in cart
+  const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div>
-      <nav>
+    <div className={layoutStyles.layoutContainer}>
+      <nav className={headerStyles.navbar}>
         <Link to="/">Home</Link>
         <Link to="/contact">Contact</Link>
-        <Link to="/cart">🛒 Cart ({totalQuantity})</Link> {/* ✅ Display total quantity */}
+        <Link to="/cart" className={headerStyles.cartIcon}>
+          🛒 Cart {totalCartItems > 0 && (
+  <span className={headerStyles.cartBadge}>({totalCartItems})</span>
+)}
+
+        </Link>
       </nav>
-      <main>
-        <Outlet /> {/* This renders the current page inside Layout */}
+      <main className={layoutStyles.mainContent}>
+        <Outlet />
       </main>
     </div>
   );

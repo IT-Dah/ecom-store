@@ -1,0 +1,16 @@
+.cartControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.quantityBtn {
+  background: #008CBA;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.quantityBtn:hover {
+  background: #005f73;
+}

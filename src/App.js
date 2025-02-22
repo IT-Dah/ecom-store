@@ -7,11 +7,11 @@ import CartPage from "./components/CartPage";
 import CheckoutPage from "./components/CheckoutPage";
 import CheckoutSuccessPage from "./components/CheckoutSuccessPage";
 import ContactPage from "./components/ContactPage";
-import { CartProvider } from "./context/CartContext";
+import { CartProvider } from "./context/CartContext"; // ✅ Import CartProvider
 
 function App() {
   return (
-    <CartProvider>
+    <CartProvider> {/* ✅ Wrap everything inside CartProvider */}
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>

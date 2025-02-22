@@ -1,0 +1,71 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Center main content */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Global button styles */
+button {
+  background: #008CBA;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  margin: 8px; /* Increased spacing */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  min-width: 120px; /* Ensure buttons have a minimum width */
+  white-space: nowrap; /* Prevents text from wrapping */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: #005f73;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+button:active {
+  background: #003f5c;
+  transform: scale(0.98); /* Press effect */
+}
+
+/* Specific button styles */
+.addToCartBtn {
+  background: #ff6600;
+}
+
+.addToCartBtn:hover {
+  background: #ff4500;
+}
+
+.removeBtn {
+  background: red;
+}
+
+.removeBtn:hover {
+  background: darkred;
+}
+
+.checkoutBtn {
+  background: green;
+}
+
+.checkoutBtn:hover {
+  background: darkgreen;
+}

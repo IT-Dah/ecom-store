@@ -15,7 +15,9 @@ const ContactPage = () => {
     
     if (form.fullName.length < 3) newErrors.fullName = "Full name must be at least 3 characters.";
     if (form.subject.length < 3) newErrors.subject = "Subject must be at least 3 characters.";
-    if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Invalid email format.";
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+if (!emailPattern.test(form.email)) newErrors.email = "Enter a valid email (e.g., name@example.com)";
+
     if (form.body.length < 3) newErrors.body = "Message must be at least 3 characters.";
     
     setErrors(newErrors);

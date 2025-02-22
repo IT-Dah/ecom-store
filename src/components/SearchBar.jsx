@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "../styles/SearchBar.module.css"; // Import the new CSS file
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -9,13 +10,15 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search products..."
-      value={query}
-      onChange={handleChange}
-      style={{ padding: "10px", width: "100%", maxWidth: "400px", margin: "10px auto", display: "block" }}
-    />
+    <div className={styles.searchContainer}>
+      <input
+        type="text"
+        className={styles.searchInput}
+        placeholder="Search products..."
+        value={query}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 
