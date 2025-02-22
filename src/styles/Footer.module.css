@@ -1,11 +1,9 @@
 .footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #282c34;
-    color: white;
-    margin-top: 2rem;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-  }
-  
+  text-align: center;
+  padding: 1rem;
+  background-color: #2b2f36; /* Updated background color */
+  color: white;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}

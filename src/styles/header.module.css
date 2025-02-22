@@ -1,56 +1,74 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #282c34;
-  padding: 15px 20px;
-  color: white;
+  align-items: center; /* ✅ Ensures everything is vertically centered */
+  justify-content: space-between; /* ✅ Keeps spacing balanced */
+  background: #2b2f36; /* Updated background color */
+  padding: 1rem 2rem;
+  height: 60px;
 }
 
-/* ✅ DigiShop Branding */
+/* ✅ DigiShop stays on the left */
 .brand {
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
-  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
-/* ✅ Styling for the nav links */
-.nav-links {
+/* ✅ Centers the nav links */
+.navLinks {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center; /* ✅ Ensures all nav items are evenly aligned */
+  gap: 2rem;
 }
 
-/* ✅ Navigation links */
-.navbar a {
+/* ✅ Style links */
+.navLinks a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
-  padding: 8px 12px;
-  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-  color: #61dafb;
-  transform: scale(1.1);
+.navLinks a:hover {
+  color: #ff6600;
 }
 
-/* ✅ Cart Icon */
-.cart-icon {
-  position: relative;
+/* ✅ Cart Icon Styling */
+.cartIcon {
   display: flex;
   align-items: center;
   gap: 5px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* ✅ Cart Badge */
-.cart-badge {
-  position: absolute;
-  top: -5px;
-  right: -10px;
+.cartIcon:hover {
+  color: #ff6600;
+  transform: scale(1.05);
+}
+
+/* ✅ Cart Icon */
+.cartIcon {
+  display: flex;
+  align-items: center; /* ✅ Aligns cart icon & text */
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.cartBadge {
   background-color: red;
   color: white;
-  font-size: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
   padding: 3px 6px;
   border-radius: 50%;
+  margin-left: 5px;
 }
