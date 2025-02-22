@@ -13,10 +13,10 @@ const Layout = () => {
   return (
     <div className={layoutStyles.layoutContainer}>
       <header className={headerStyles.navbar}>
-        {/* ✅ DigiShop stays on the left */}
+        { }
         <h1 className={headerStyles.brand}>DigiShop</h1>
 
-        {/* ✅ Centered navigation links */}
+        { }
         <nav className={headerStyles.navLinks}>
           <Link to="/">Home</Link>
           <Link to="/contact">Contact</Link>
@@ -32,7 +32,7 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      <Footer /> {/* ✅ Footer stays at the bottom */}
+      <Footer /> { }
     </div>
   );
 };
