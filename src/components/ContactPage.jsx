@@ -12,11 +12,14 @@ const ContactPage = () => {
 
   const validateForm = () => {
     const newErrors = {};
+    
     if (form.fullName.length < 3) newErrors.fullName = "Full name must be at least 3 characters.";
     if (form.subject.length < 3) newErrors.subject = "Subject must be at least 3 characters.";
-    if (!form.email.includes("@") || !form.email.includes(".")) newErrors.email = "Invalid email format.";
+    if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Invalid email format.";
     if (form.body.length < 3) newErrors.body = "Message must be at least 3 characters.";
-    return newErrors;
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e) => {
@@ -25,13 +28,10 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length === 0) {
+    if (validateForm()) {
       console.log("Form submitted:", form);
       alert("Message sent successfully!");
       setForm({ fullName: "", subject: "", email: "", body: "" }); // Clear form
-    } else {
-      setErrors(validationErrors);
     }
   };
 
@@ -39,17 +39,25 @@ const ContactPage = () => {
     <div>
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="fullName" placeholder="Full Name" value={form.fullName} onChange={handleChange} />
-        {errors.fullName && <p>{errors.fullName}</p>}
-        
-        <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
-        {errors.subject && <p>{errors.subject}</p>}
+        <div>
+          <input type="text" name="fullName" placeholder="Full Name" value={form.fullName} onChange={handleChange} />
+          {errors.fullName && <p style={{ color: "red" }}>{errors.fullName}</p>}
+        </div>
 
-        <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-        {errors.email && <p>{errors.email}</p>}
+        <div>
+          <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
+          {errors.subject && <p style={{ color: "red" }}>{errors.subject}</p>}
+        </div>
 
-        <textarea name="body" placeholder="Your message..." value={form.body} onChange={handleChange}></textarea>
-        {errors.body && <p>{errors.body}</p>}
+        <div>
+          <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
+          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+        </div>
+
+        <div>
+          <textarea name="body" placeholder="Your message..." value={form.body} onChange={handleChange}></textarea>
+          {errors.body && <p style={{ color: "red" }}>{errors.body}</p>}
+        </div>
 
         <button type="submit">Send Message</button>
       </form>
