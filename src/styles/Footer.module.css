@@ -1,7 +1,7 @@
 .footer {
   text-align: center;
   padding: 1rem;
-  background-color: #2b2f36;
+  background-color: var(--color-footer);
   color: white;
   position: relative;
   width: 100%;

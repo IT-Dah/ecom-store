@@ -2,26 +2,23 @@
   max-width: 90%;
   margin: auto;
   padding: 2rem;
-  background: white;
+  background: var(--color-card);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
 }
 
-/* Make the cart title stand out */
 h1 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
 }
 
-/* Container for all cart items */
 .cartItems {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Cart Item Styling */
 .cartItem {
   display: flex;
   flex-direction: column;
@@ -30,7 +27,6 @@ h1 {
   border-bottom: 1px solid #ddd;
 }
 
-/* Style for product images */
 .cartImage {
   width: 100px;
   height: 100px;
@@ -39,13 +35,11 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Center product details */
 .itemDetails {
   text-align: center;
   width: 100%;
 }
 
-/* Cart Controls (Increase, Decrease, Remove) */
 .cartControls {
   display: flex;
   gap: 10px;
@@ -54,7 +48,6 @@ h1 {
   margin-top: 10px;
 }
 
-/* Buttons */
 .quantityBtn {
   background: #008CBA;
   color: white;
@@ -70,7 +63,6 @@ h1 {
   background: #005f73;
 }
 
-/* Remove button */
 .removeBtn {
   background: red;
   color: white;
@@ -84,7 +76,6 @@ h1 {
   background: darkred;
 }
 
-/* Checkout and Clear Cart Buttons */
 .checkoutActions {
   margin-top: 1.5rem;
   display: flex;
@@ -121,7 +112,6 @@ h1 {
   background: darkgreen;
 }
 
-/* Empty cart message */
 .emptyCart {
   text-align: center;
   font-size: 1.5rem;
@@ -129,7 +119,6 @@ h1 {
   padding: 2rem;
 }
 
-/* ✅ Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .cartContainer {
     padding: 1rem;

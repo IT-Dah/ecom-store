@@ -5,24 +5,25 @@
     height: 80vh;
     text-align: center;
   }
-  
+
   .successContent {
-    background: white;
+    background: var(--color-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.10);
     max-width: 400px;
+    color: var(--color-text);
   }
-  
+
   .checkmark {
     font-size: 3rem;
     color: green;
     display: block;
     margin-bottom: 1rem;
   }
-  
+
   .returnBtn {
-    background: #008CBA;
+    background: var(--color-primary);
     color: white;
     padding: 10px 15px;
     border: none;
@@ -30,11 +31,10 @@
     font-size: 1rem;
     font-weight: bold;
     border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s, transform 0.2s;
   }
-  
+
   .returnBtn:hover {
-    background: #005f73;
+    background: var(--color-primary-dark);
     transform: scale(1.05);
   }
-  

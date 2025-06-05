@@ -4,12 +4,18 @@ import SearchBar from "./SearchBar";
 import { CartContext } from "../context/CartContext";
 import styles from "../styles/ProductList.module.css";
 
+const fallbackImage = "/fallback-image.png"; // You must add a fallback-image.png to public folder
+
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { addToCart } = useContext(CartContext);
+
+  useEffect(() => {
+    document.title = "Products | DigiShop";
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,8 +45,22 @@ const ProductsList = () => {
     setFilteredProducts(filtered);
   };
 
-  if (loading) return <div className={styles.loadingSpinner}></div>;
-  if (error) return <p>{error}</p>;
+  if (loading)
+    return (
+      <div className={styles.loadingSpinner} aria-busy="true" aria-live="polite">
+        <span style={{ position: "absolute", left: "-9999px" }}>
+          Loading products…
+        </span>
+      </div>
+    );
+
+  if (error)
+    return (
+      <div>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
+      </div>
+    );
 
   return (
     <div className={styles.container}>
@@ -52,9 +72,20 @@ const ProductsList = () => {
         ) : (
           filteredProducts.map((product) => (
             <div key={product.id} className={styles.productCard}>
-              <img src={product.image.url} alt={product.image.alt || product.title} />
+              <img
+                src={product.image?.url || fallbackImage}
+                alt={product.image?.alt || `${product.title} product image`}
+                onError={(e) => (e.currentTarget.src = fallbackImage)}
+              />
               <h3>{product.title}</h3>
-              <p>Price: ${product.discountedPrice.toFixed(2)}</p>
+              <p>
+                {product.price !== product.discountedPrice && (
+                  <span style={{ textDecoration: "line-through", color: "#888", marginRight: 6 }}>
+                    ${product.price.toFixed(2)}
+                  </span>
+                )}
+                <span>${product.discountedPrice.toFixed(2)}</span>
+              </p>
               <button onClick={() => addToCart(product)}>Add to Cart</button>
               <Link to={`/product/${product.id}`}>
                 <button>View Product</button>

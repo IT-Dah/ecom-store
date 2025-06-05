@@ -1,11 +1,9 @@
-/* Layout Container */
 .layoutContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Main Content - Push Footer Down */
 .mainContent {
   flex: 1;
   padding: 20px;

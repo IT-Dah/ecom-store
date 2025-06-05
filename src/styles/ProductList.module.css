@@ -5,6 +5,7 @@
   text-align: center;
   width: 100%;
   padding: 2rem;
+  background: var(--color-bg);
 }
 
 h1 {
@@ -12,7 +13,7 @@ h1 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: var(--color-text);
 }
 
 .searchBar {
@@ -20,43 +21,43 @@ h1 {
   max-width: 400px;
   padding: 12px;
   margin-bottom: 1.5rem;
-  border: 2px solid #008CBA;
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s ease;
+  background: var(--color-card);
+  color: var(--color-text);
+  transition: border-color 0.3s, background 0.3s, color 0.3s;
 }
 
 .searchBar:focus {
-  border-color: #005f73;
+  border-color: var(--color-primary-dark);
 }
 
-/* ✅ Updated Product Grid */
 .productList {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 products per row */
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.2rem;
   width: 100%;
   max-width: 1400px;
   padding: 1rem;
 }
 
-/* ✅ Improved Product Cards */
 .productCard {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-muted);
   padding: 1.2rem;
   text-align: center;
-  background: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--color-card);
+  color: var(--color-text);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.10);
   border-radius: 10px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s, background 0.3s, color 0.3s;
 }
 
 .productCard:hover {
   transform: scale(1.03);
 }
 
-/* ✅ Consistent Image Sizing */
 .productCard img {
   width: 100%;
   height: 220px;
@@ -64,16 +65,24 @@ h1 {
   border-radius: 8px;
 }
 
-/* ✅ Product Titles */
 .productCard h3 {
   margin: 0.8rem 0;
   font-size: 1.1rem;
-  color: #333;
+  color: var(--color-text);
 }
 
-/* ✅ Styled Buttons */
+.productCard p {
+  color: var(--color-text);
+}
+
+.priceOld {
+  text-decoration: line-through;
+  color: var(--color-muted);
+  margin-right: 6px;
+}
+
 .productCard button {
-  background: #008CBA;
+  background: var(--color-primary);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -82,11 +91,11 @@ h1 {
   font-size: 1rem;
   font-weight: bold;
   border-radius: 5px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .productCard button:hover {
-  background: #005f73;
+  background: var(--color-primary-dark);
   transform: scale(1.05);
 }
 
@@ -95,43 +104,30 @@ h1 {
   transform: scale(0.98);
 }
 
-/* ✅ Loading Spinner */
 .loadingSpinner {
   width: 50px;
   height: 50px;
-  border: 5px solid #ddd;
-  border-top: 5px solid #008CBA;
+  border: 5px solid var(--color-muted);
+  border-top: 5px solid var(--color-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: auto;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
-/* ✅ Responsive Grid */
 @media (max-width: 1200px) {
-  .productList {
-    grid-template-columns: repeat(4, 1fr); /* 4 products per row */
-  }
+  .productList { grid-template-columns: repeat(4, 1fr);}
 }
-
 @media (max-width: 900px) {
-  .productList {
-    grid-template-columns: repeat(3, 1fr); /* 3 products per row */
-  }
+  .productList { grid-template-columns: repeat(3, 1fr);}
 }
-
 @media (max-width: 600px) {
-  .productList {
-    grid-template-columns: repeat(2, 1fr); /* 2 products per row */
-  }
+  .productList { grid-template-columns: repeat(2, 1fr);}
 }
-
 @media (max-width: 400px) {
-  .productList {
-    grid-template-columns: repeat(1, 1fr); /* 1 product per row */
-  }
+  .productList { grid-template-columns: repeat(1, 1fr);}
 }
