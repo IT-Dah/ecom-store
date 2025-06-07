@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import styles from "../styles/CartPage.module.css";
@@ -7,7 +7,6 @@ const fallbackImage = "/fallback-image.png";
 
 const CartPage = () => {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useContext(CartContext);
-  const badgeRef = useRef();
 
   useEffect(() => {
     document.title = "Cart | DigiShop";
