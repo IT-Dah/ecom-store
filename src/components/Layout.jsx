@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import React, { useContext, useEffect, useRef, useState } from "react"; 
+import { Link, Outlet } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import Footer from "./Footer";
 
@@ -14,7 +14,6 @@ const Layout = () => {
   const [darkMode, setDarkMode] = useState(() =>
     localStorage.getItem("theme") === "dark"
   );
-  const location = useLocation();
 
   useEffect(() => {
     if (darkMode) {
